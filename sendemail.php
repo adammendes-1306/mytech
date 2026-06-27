@@ -18,19 +18,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Create a new PHPMailer instance
     $mail = new PHPMailer(true);
 
+    // SMTP credentials removed for security.
+    // Configure your own SMTP account before deployment.
     try {
         // Server settings
         $mail->isSMTP();
         $mail->Host       = 'smtp.gmail.com';
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'kl2408016802@student.uptm.edu.my';   	// Your Gmail address
-        $mail->Password   = 'xudjjwzazmdrigpu';       				// Your 16-character Gmail App Password
+        $mail->Username   = 'your-email@example.com';   	// Your Gmail address
+        $mail->Password   = 'YOUR_APP_PASSWORD';       		// Your 16-character Gmail App Password
         $mail->SMTPSecure = 'tls';
         $mail->Port       = 587;
 
         // Recipients
-        $mail->setFrom($email, $name);
-        $mail->addAddress('kl2408016802@student.uptm.edu.my', 'MYTECH Admin'); // Destination email
+        $mail->setFrom('your-email@example.com', 'MyTech Website');
+        s$mail->addReplyTo($email, $name);
 
         // Content
         $mail->isHTML(true);
